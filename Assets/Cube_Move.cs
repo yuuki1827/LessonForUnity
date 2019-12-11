@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cube : MonoBehaviour
+public class Cube_Move : MonoBehaviour
 {
     private Vector3 m_pos;
     // Start is called before the first frame update
