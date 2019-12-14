@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class Cyrlinder_Move : MonoBehaviour
 {
-
     // 回転の中心
     Vector3 rotatePoint = Vector3.zero;
     // 回転軸
     Vector3 rotateAxis = Vector3.zero;
     // 回転角度
     float cyrlinderAngle = 0f;
-
     // シリンダーの大きさの半分
     float cyrlinderSizeHalf;
     // 回転中に立つフラグ。回転中は入力を受け付けない
@@ -28,8 +26,6 @@ public class Cyrlinder_Move : MonoBehaviour
         {
             rotatePoint = transform.position + new Vector3(cyrlinderSizeHalf, -cyrlinderSizeHalf, 0f);
             rotateAxis = new Vector3(0, 0, -1);
-            //cyrlinderAngle = 90f;
-            //transform.RotateAround(rotatePoint, rotateAxis, cyrlinderAngle);
             StartCoroutine(MoveCylinder());
         }
     }
@@ -54,15 +50,12 @@ public class Cyrlinder_Move : MonoBehaviour
             {
                 cyrlinderAngle -= sumAngle - 90f;
             }
-
             transform.RotateAround(rotatePoint, rotateAxis, cyrlinderAngle);
-
             yield return null;
         }
 
         // 回転中のフラグを倒す
         isRotate = false;
-
         yield break;
     }
 }
